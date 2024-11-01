@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script> 
+    
+    const socket = io(); 
+
+    // document.addEventListener('submit', (e) => {
+    //     e.preventDefault();
+    //     if (input.value) {
+    //         socket.emit('message', input.value);
+    //         input.value = '';
+    //     }
+    // });
+
+    document.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (input.value) {
+            socket.emit('keydown', input.value);
+            input.value = '';
+        }
+    });
+
+    </script>
+</head>
+
+<body>
+    <h1>Web arduino UI</h1>
+    <form id = "form " action = "",>
+        <label for="input">Insert R, G, B values here:</label><br>
+        <input id="input" autocomplete="off"/><button>Send</button>
+    </form>
+</body>
+</html>
